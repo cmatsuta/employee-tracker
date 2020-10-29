@@ -201,7 +201,13 @@ function updateEmployeeRole() {
     let roleArray = [];
 
     // Create connection using promise-sql
-    promisemysql.createConnection(connection)
+    promisemysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "password",
+        database: "employeedb"
+    })
     .then((conn) => {
         return Promise.all([
 
@@ -278,7 +284,13 @@ function updateManager(){
     let employeeArray = [];
 
     // Create connection using promise-sql
-    promisemysql.createConnection(connection)
+    promisemysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "password",
+        database: "employeedb"
+    })
     .then((conn) => {
 
         // query all employees
@@ -345,7 +357,13 @@ function viewEmpByManager(){
     let managerArray = [];
 
     // Create connection using promise-sql
-    promisemysql.createConnection(connection)
+    promisemysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "password",
+        database: "employeedb",
+    })
     .then((conn) => {
 
         // Query all employees
@@ -406,7 +424,13 @@ function viewEmpByManager(){
 function viewDeptBudget(){
 
     // Create connection using promise-sql
-    promisemysql.createConnection(connection)
+    promisemysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "password",
+        database: "employeedb"
+    })
     .then((conn) => {
         return  Promise.all([
 
@@ -454,8 +478,13 @@ function deleteEmployee(){
     let employeeArray = [];
 
     // Create connection using promise-sql
-    promisemysql.createConnection(connection
-    ).then((conn) => {
+    promisemysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "password",
+        database: "employeedb"
+    }).then((conn) => {
 
         // Query all employees
         return  conn.query("SELECT employee.id, concat(employee.first_name, ' ' ,  employee.last_name) AS employee FROM employee ORDER BY Employee ASC");
@@ -521,8 +550,13 @@ function deleteRole(){
     let roleArray = [];
 
     // Create connection using promise-sql
-    promisemysql.createConnection(connection
-    ).then((conn) => {
+    promisemysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "password",
+        database: "employeedb"
+    }).then((conn) => {
 
         // query all roles
         return conn.query("SELECT id, title FROM role");
@@ -603,8 +637,13 @@ function deleteDept(){
     let deptArray = [];
 
     // Create connection using promise-sql
-    promisemysql.createConnection(connection
-    ).then((conn) => {
+    promisemysql.createConnection({
+        host: "localhost",
+        port: 3306,
+        user: "root",
+        password: "password",
+        database: "employeedb"
+    }).then((conn) => {
 
         // query all departments
         return conn.query("SELECT id, name FROM department");
